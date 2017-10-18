@@ -76,7 +76,7 @@ function startApp() {
         function loginSuccess(userInfo) {
             saveAuthInSession(userInfo);
             showHideMenuLinks();
-            showHomeView();
+            listAdverts();
         }
     }
 
@@ -87,12 +87,12 @@ function startApp() {
         sessionStorage.setItem('userId', userId);
     }
 
-       function registerUser() {
-        const kinveyRegisterUrl = "https://mock.backend.com/user/kid_rk/";
+    // user/register
+    function registerUser() {
+        const kinveyRegisterUrl = kinveyBaseUrl + "user/" + kinveyAppKey + "/";
         const kinveyAuthHeaders = {
-            'Authorization': "Basic " + btoa("kid_rk:736804a668"),
+            'Authorization': "Basic " + btoa(kinveyAppKey + ":" + kinveyAppSecret),
         };
-
 
         let userData = {
             username: $('#formRegister input[name=username]').val(),
@@ -111,7 +111,7 @@ function startApp() {
             console.log(userInfo);
             saveAuthInSession(userInfo);
             showHideMenuLinks();
-            showHomeView();
+            listAdverts();
         }
     }
 
@@ -164,3 +164,4 @@ function startApp() {
             }
         }
     }
+}
