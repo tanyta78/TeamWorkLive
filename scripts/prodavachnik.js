@@ -1,9 +1,9 @@
 function startApp() {
-
     if (sessionStorage.getItem('authToken') !== null) {
         let username = sessionStorage.getItem('username');
         $('#loggedInUser').text("Welcome, " + username + "!");
     }
+
     showHideMenuLinks();
     showHomeView();
 
@@ -130,6 +130,7 @@ function startApp() {
         let username = userInfo.username;
         sessionStorage.setItem('username', username);
         $('#loggedInUser').text("Welcome, " + username + "!");
+
     }
 
     // user/register
